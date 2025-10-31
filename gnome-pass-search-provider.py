@@ -36,8 +36,12 @@ try:
     from thefuzz import fuzz
     from thefuzz import process
 except ModuleNotFoundError:
-    from fuzzywuzzy import fuzz
-    from fuzzywuzzy import process
+    try:
+        from fuzzywuzzy import fuzz
+        from fuzzywuzzy import process
+    except ModuleNotFoundError:
+        from rapidfuzz import fuzz
+        from rapidfuzz import process
 from gi.repository import GLib
 
 # Convenience shorthand for declaring dbus interface methods.

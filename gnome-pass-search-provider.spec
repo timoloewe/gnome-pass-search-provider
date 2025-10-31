@@ -9,8 +9,12 @@ Requires:       gnome-shell
 Requires:       pass
 Requires:       python3-gobject
 Requires:       python3-dbus
-Requires:       python3-fuzzywuzzy
 Requires:       python3-Levenshtein
+%if 0%{?fedora} >= 43
+Requires:       python3-rapidfuzz
+%else
+Requires:       python3-fuzzywuzzy
+%endif
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %global debug_package %{nil}
